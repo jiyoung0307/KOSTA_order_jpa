@@ -3,7 +3,6 @@ package com.example.order_jpa.controller;
 import com.example.order_jpa.dto.ProductUpdateDTO;
 import com.example.order_jpa.entity.Product;
 import com.example.order_jpa.service.ProductService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

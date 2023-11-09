@@ -20,6 +20,7 @@ public class Order {
 
     @Column(name="order_date", length = 10)
     private String orderDate;
+
     @Enumerated(value = EnumType.STRING)
     @Column(name="order_status", length = 10)
     private OrderStatus orderStatus;
