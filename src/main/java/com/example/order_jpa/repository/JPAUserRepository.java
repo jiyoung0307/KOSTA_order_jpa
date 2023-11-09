@@ -25,7 +25,7 @@ public class JPAUserRepository {
         return em.find(User.class, userId);
     }
 
-    public void delete(User user) {
+    public void remove(User user) {
         em.remove(user);
     }
 }

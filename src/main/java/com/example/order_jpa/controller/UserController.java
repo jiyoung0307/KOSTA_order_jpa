@@ -20,8 +20,6 @@ public class UserController {
     @PostMapping("/add")
     public String addUser(@ModelAttribute User user) {
         userService.addUser(user);
-        return "redirect:/product/list";  // 상품조회 화면으로 redirect(PRG)
+        return "redirect:/product/list";  // 상품조회 화면으로 redirect
     }
-
-
 }

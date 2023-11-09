@@ -15,11 +15,10 @@ public class JPAOrderRepository {
     @PersistenceContext
     private final EntityManager em;
 
-    public List<Order> findAll() {
+    public List<Order> findAll(){
         return em.createQuery("select o from Order o", Order.class).getResultList();
     }
 
-    /** 못찾아도 빈 껍데기를 가져오므로 NullPointerException발생 안함 */
     public Optional<Order> findById(Long orderId) {
         return Optional.ofNullable(em.find(Order.class, orderId));
     }
@@ -35,5 +34,4 @@ public class JPAOrderRepository {
     public List<Order> findOrdersByUserId(Long userId) {
         return null;
     }
-
 }

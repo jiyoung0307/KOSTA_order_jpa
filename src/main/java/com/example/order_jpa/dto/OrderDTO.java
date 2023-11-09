@@ -5,8 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductUpdateDTO {
+public class OrderDTO {
+    private Long userId;
     private Long productId;
-    private String name;
-    private int price;
+    private Integer orderQuantity;
 }

@@ -4,19 +4,21 @@ import com.example.order_jpa.entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class JPAProductRepository {
-//    JPA 사용 / 바로 구현체로 만듦
-    @PersistenceContext     // 영속성 컨텍스트를 Bean 등록
+    @PersistenceContext
     private final EntityManager em;
 
-    /** EntityManager 사용 */
-    /** JPA가 가지고 있는 메소드와 이름을 같게 하면 Service에서 따로 작업 안해도 됨*/
+    @Autowired
+    public JPAProductRepository(EntityManager em) {
+        this.em = em;
+    }
     public void save(Product product) {
         em.persist(product);
     }
