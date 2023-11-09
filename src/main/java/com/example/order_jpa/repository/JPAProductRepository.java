@@ -29,7 +29,7 @@ public class JPAProductRepository {
         return em.find(Product.class, productId);
     }
 
-    public void delete(Product product) {
+    public void remove(Product product) {
         em.remove(product);
     }
 }

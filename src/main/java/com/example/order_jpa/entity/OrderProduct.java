@@ -11,6 +11,7 @@ public class OrderProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_product_id")
+//    order 엔티티의 연관관계주인
     private Long orderProdcutId;
 
     @ManyToOne(fetch = FetchType.LAZY)  // 지연로딩

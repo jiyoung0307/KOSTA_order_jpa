@@ -25,7 +25,7 @@ public class ProductService {
 
     public void deleteProduct(long productId) {
         Product product = productRepository.findById(productId);
-        productRepository.delete(product);
+        productRepository.remove(product);
     }
 
     public Product getProductInfo(long productId) {

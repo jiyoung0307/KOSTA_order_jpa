@@ -19,8 +19,9 @@ public class JPAOrderRepository {
         return em.createQuery("select o from Order o", Order.class).getResultList();
     }
 
-    public Order findById(Long orderId) {
-        return Optional.ofNullable(em.find(Order.class, orderId)).get();
+    /** 못찾아도 빈 껍데기를 가져오므로 NullPointerException발생 안함 */
+    public Optional<Order> findById(Long orderId) {
+        return Optional.ofNullable(em.find(Order.class, orderId));
     }
 
     public void save(Order order) {
@@ -29,6 +30,10 @@ public class JPAOrderRepository {
 
     public void delete(Order order) {
         em.remove(order);
+    }
+
+    public List<Order> findOrdersByUserId(Long userId) {
+        return null;
     }
 
 }
