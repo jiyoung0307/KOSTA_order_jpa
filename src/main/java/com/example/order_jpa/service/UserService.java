@@ -17,10 +17,10 @@ import java.util.Optional;
 public class UserService {
     private final JPAUserRepository userRepository;
 
-    public void addUser(User user) {    /** 일반 사용자 - 고객 */
+    public void addUser(User user) { // 일반 사용자 - 고객
         Optional<User> byEmail = userRepository.findByEmail(user.getEmail());
-        if(!byEmail.isEmpty()) {
-            throw new IllegalStateException("이미 존재하는 이메일입니다.");
+        if (!byEmail.isEmpty()) {
+            throw new IllegalArgumentException("이미 존재하는 이메일입니다.");
         }
         user.setUserType(UserType.BASIC);
         userRepository.save(user);
@@ -28,5 +28,9 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public User getUserById(Long userId) {
+        return userRepository.findById(userId);
     }
 }
