@@ -32,6 +32,11 @@
         <td th:text="${order.getTotalPrice()}">price</td>
         <td th:text="${order.getTotalQuantity()}">quantity</td>
         <td th:text="${order.getOrderStatus()}">status</td>
+        <td>
+            <a th:if="(${order.orderStatus.name() == 'CREATED'}"
+               th:href="@{/order/cancel/{orderId}(orderId=${order.orderId})}"
+               th:text="취소">주문 취소</a>
+        </td>
     </tr>
     </tbody>
 </table>

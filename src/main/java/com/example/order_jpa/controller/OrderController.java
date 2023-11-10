@@ -37,7 +37,7 @@ public class OrderController {
         return "order/orderList";
     }
 
-    @PostMapping("/list/{orderId}")
+    @GetMapping("/cancel/{orderId}")
     public String cancelOrder(@PathVariable Long orderId) {
         orderService.cancelOrder(orderId);
         return "redirect:/order/list";
