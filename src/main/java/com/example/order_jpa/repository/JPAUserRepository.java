@@ -31,11 +31,11 @@ public class JPAUserRepository {
     }
 
     public Optional<User> findByEmail(String email) {
-        return em.createQuery("SELECT u FROM User u where u.email = :email", User.class)
+        return  em.createQuery("SELECT u FROM User u where u.email = :email", User.class)
                 .setParameter("email", email)
                 .getResultList()
                 .stream()
                 .filter(u -> u.getEmail().equals(email))
-                .findFirst();   /** 있으면 반환해주고 없으면 Optional 리턴해줌 */
+                .findFirst();
     }
 }
